@@ -1,7 +1,6 @@
 {
   "name": "angular-cognalys",
   "description": "An Angular wrapper for the Cognalys REST API",
-  "version": "0.1",
   "main": "./angular-cognalys.js",
   "ignore": [],
   "author": "Matthew Webb",
