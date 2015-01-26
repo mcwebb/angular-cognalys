@@ -28,32 +28,36 @@ angular.module('xxxx')
 ### Try Number
 ```js
 angular.module('xxxx')
-.controller('SignupController', function SignupController(Cognalys) {
-	Cognalys.verifyMobileNumber($scope.countryCode, $scope.phoneNumber)
-	.then(function (response) {
-		// Success - do something
-	}, function (errors) {
-		// Failure - do something with the errors
-		for (var key in errors) {
-			console.log('error code:' + key);
-			console.log('error message:' + errors[key]);
-		}
-	});
+.controller('SignupController', function SignupController($scope, Cognalys) {
+	$scope.submit = function () {
+		Cognalys.verifyMobileNumber($scope.countryCode, $scope.phoneNumber)
+		.then(function (response) {
+			// Success - do something
+		}, function (errors) {
+			// Failure - do something with the errors
+			for (var key in errors) {
+				console.log('error code:' + key);
+				console.log('error message:' + errors[key]);
+			}
+		});
+	};
 });
 ```
 ### Verify User's Verification
 ```js
 angular.module('xxxx')
-.controller('SignupController', function SignupController(Cognalys) {
-	Cognalys.confirmVerification($scope.verificationCode)
-	.then(function (response) {
-		// Success - do something
-	}, function (errors) {
-		// Failure - do something with the errors
-		for (var key in errors) {
-			console.log('error code:' + key);
-			console.log('error message:' + errors[key]);
-		}
-	});
+.controller('SignupController', function SignupController($scope, Cognalys) {
+	$scope.verify = function () {
+		Cognalys.confirmVerification($scope.verificationCode)
+		.then(function (response) {
+			// Success - do something
+		}, function (errors) {
+			// Failure - do something with the errors
+			for (var key in errors) {
+				console.log('error code:' + key);
+				console.log('error message:' + errors[key]);
+			}
+		});
+	};
 });
 ```
